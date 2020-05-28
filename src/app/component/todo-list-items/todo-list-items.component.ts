@@ -4,10 +4,8 @@ import {
   ViewChild,
   ElementRef,
   AfterViewChecked,
-  Output,
-  EventEmitter,
 } from '@angular/core';
-import { TODOS } from '../../models/todos';
+import { TODOS } from '../../models/todos.model';
 
 @Component({
   selector: 'app-todo-list-items',
@@ -18,16 +16,11 @@ export class TodoListItemsComponent implements AfterViewChecked {
   @Input() todo: TODOS;
   @ViewChild('tref', { read: ElementRef }) tref: ElementRef;
   constructor() {}
-  @Output() messageEvent = new EventEmitter<string>();
 
-  message: string;
-  updateField(event) {
-    this.message = event.target.value;
-    this.sendMessage();
-  }
   ngAfterViewChecked(): void {
     this.tref.nativeElement.checked = this.todo.iscompleted;
   }
+
   setClasses() {
     const classes = {
       'is-complete': this.todo.iscompleted,
@@ -35,12 +28,11 @@ export class TodoListItemsComponent implements AfterViewChecked {
 
     return classes;
   }
+
   onToggle(todo: any) {
     this.todo.iscompleted = !todo.iscompleted;
   }
-  sendMessage() {
-    this.messageEvent.emit(this.message);
-  }
+
   onDelete(todo: any) {
     console.log('delete');
   }
