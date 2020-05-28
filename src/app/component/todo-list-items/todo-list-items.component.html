@@ -3,11 +3,11 @@
     (change)="onToggle(todo)"
     type="checkbox"
     name="checkbox"
-    id="{{ todo.id }}"
+    id="{{ todo.fireID }}"
     #tref
   />
-  <label for="{{ todo.id }}">{{ todo.title }}</label>
+  <label for="{{ todo.fireID }}">{{ todo.title }}</label>
   <button (click)="onDelete(todo)" class="delete">
-    <span>&#10006; </span>
+    <span>&#10006;</span>
   </button>
 </div>

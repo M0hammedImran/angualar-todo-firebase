@@ -1,7 +1,9 @@
+@charset "UTF-8";
+@import "src/_variable.scss";
+
 .todo-container {
   width: 570px;
-  background: #1f2833;
-  // background: #05386b;
+  background: $tile-bg;
   margin: 0.3rem auto;
   height: 2.5rem;
   border-radius: 0.3rem;
@@ -10,7 +12,7 @@
   align-items: center;
 
   label {
-    color: #66fcf1;
+    color: $text-color;
     width: 87%;
   }
 
@@ -37,13 +39,13 @@
     width: 100%;
     height: 100%;
     font-size: 1.7rem;
-    color: white;
+    color: $white-text;
   }
 }
 
 .delete:active {
-  background-color: rgb(233, 18, 18);
-  color: white;
+  background-color: #e91212;
+  color: $white-text;
 }
 
 #checkbox {
@@ -52,5 +54,11 @@
 }
 
 .is-complete {
-  text-decoration: line-through white 0.21rem;
+  text-decoration: line-through;
+  text-decoration-style: line-through;
+  text-decoration-color: #fff;
+  text-decoration-thickness: 5px;
+  -moz-text-decoration: line-through;
+  -moz-text-decoration-color: #fff;
+  -moz-text-decoration-thickness: 5px;
 }

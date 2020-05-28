@@ -1,0 +1,30 @@
+@import "src/_variable.scss";
+
+.form-container {
+  width: 100%;
+  margin: 1rem auto;
+  height: 3rem;
+
+  input {
+    height: 2.3rem;
+    width: 85%;
+    padding: 0.4rem;
+    border: 1px solid $tile-bg;
+    border-top-left-radius: 0.3rem;
+    font-family: "fira sans", "Open Sans", sans-serif;
+    border-bottom-left-radius: 0.3rem;
+    outline: none;
+  }
+
+  button {
+    outline: none;
+    height: 2.3rem;
+    width: 15%;
+    border: 1px solid $tile-bg;
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    background: $tile-bg;
+    color: $text-color;
+    font-size: 16px;
+  }
+}

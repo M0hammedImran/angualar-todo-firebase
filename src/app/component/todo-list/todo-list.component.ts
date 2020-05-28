@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TODOS } from '../../models/todos.model';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
@@ -11,26 +10,20 @@ import { TodoService } from 'src/app/services/todo.service';
 export class TodoListComponent implements OnInit {
   todos: TODOS[];
   data: any;
-  constructor(
-    private service: TodoService,
-    private firestore: AngularFirestore
-  ) {}
+  constructor(private service: TodoService) {}
 
-  ngOnInit() {
-    this.firestore
-      .collection('todos')
-      .doc('user')
-      .snapshotChanges()
-      .subscribe((item) => {
-        console.log(item.payload.data());
+  async ngOnInit() {
+    this.service.getTodos().subscribe((todos) => {
+      this.todos = todos.map((todo) => {
+        const { id, isCompleted, title } = todo.payload.doc.data();
+
+        return {
+          fireID: todo.payload.doc.id,
+          id,
+          title,
+          isCompleted,
+        };
       });
-
-    this.todos = [
-      {
-        id: '1',
-        title: 'something',
-        iscompleted: false,
-      },
-    ];
+    });
   }
 }

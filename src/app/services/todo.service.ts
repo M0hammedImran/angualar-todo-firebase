@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
 import { TODOS } from '../models/todos.model';
-import { AngularFirestore } from '@angular/fire/firestore';
+import {
+  AngularFirestore,
+  DocumentChangeAction,
+} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class TodoService {
-  todos: Observable<TODOS[]>;
+  todos: Observable<DocumentChangeAction<TODOS>[]>;
 
   constructor(private firestore: AngularFirestore) {
-    this.todos = firestore.collection('todos').valueChanges();
+    this.todos = firestore.collection('todos').snapshotChanges();
   }
 
   createNewTodo(todo: TODOS) {

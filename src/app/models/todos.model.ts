@@ -1,5 +1,5 @@
 export interface TODOS {
-  id?: string;
+  fireID?: string;
   title?: string;
-  iscompleted?: boolean;
+  isCompleted?: boolean;
 }

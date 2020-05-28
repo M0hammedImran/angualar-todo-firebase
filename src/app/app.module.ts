@@ -9,9 +9,10 @@ import { TodoListItemsComponent } from './component/todo-list-items/todo-list-it
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
-import { todoService } from './services/todo.service';
+import { TodoService } from './services/todo.service';
 
 import { environment } from 'src/environments/environment';
+import { AddTodoComponent } from './component/add-todo/add-todo.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +20,14 @@ import { environment } from 'src/environments/environment';
     TodoListComponent,
     HeaderComponent,
     TodoListItemsComponent,
+    AddTodoComponent,
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'todos'),
     AngularFireDatabaseModule,
   ],
-  providers: [todoService],
+  providers: [TodoService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
