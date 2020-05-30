@@ -1,0 +1,27 @@
+@import "src/_variable.scss";
+
+.action-buttons {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+  // background: #000;
+  margin: 1rem auto;
+  button {
+    height: 35px;
+    width: 110px;
+    font: "fira sans", "Open Sans", sans-serif;
+    font-weight: bold;
+    background: $text-color;
+    color: $tile-bg;
+    border: 1px solid $tile-bg;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}

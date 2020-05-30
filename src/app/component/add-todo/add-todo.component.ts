@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TODOS } from 'src/app/models/todos.model';
 import { TodoService } from 'src/app/services/todo.service';
-import { element } from 'protractor';
 
 @Component({
   selector: 'app-add-todo',

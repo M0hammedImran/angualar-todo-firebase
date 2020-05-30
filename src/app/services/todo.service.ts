@@ -23,11 +23,26 @@ export class TodoService {
     return this.todos;
   }
 
-  updateTodos(fireID: string, todo: string) {
+  updateTodos(fireID: string, todo: TODOS) {
     this.firestore.doc(`todos/${fireID}`).update(todo);
   }
 
   deleteTodo(fireID: string) {
     this.firestore.doc(`todos/${fireID}`).delete();
+  }
+
+  async deleteAll() {
+    try {
+      this.firestore
+        .collection('todos')
+        .get()
+        .subscribe((todos) => {
+          todos.forEach((todo) => {
+            this.firestore.collection('todos').doc(todo.id).delete();
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
   }
 }

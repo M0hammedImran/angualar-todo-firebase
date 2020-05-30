@@ -2,12 +2,12 @@
 
 .form-container {
   width: 100%;
-  margin: 1rem auto 2rem;
+  margin: 1rem auto;
   height: 3rem;
 
   input {
     height: 2.3rem;
-    width: 85%;
+    width: 80%;
     padding: 0.4rem;
     border: 1px solid $tile-bg;
     border-top-left-radius: 0.3rem;
@@ -19,7 +19,7 @@
   button {
     outline: none;
     height: 2.3rem;
-    width: 15%;
+    width: 20%;
     border: 1px solid $tile-bg;
     border-top-right-radius: 0.3rem;
     border-bottom-right-radius: 0.3rem;

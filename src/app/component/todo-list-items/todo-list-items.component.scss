@@ -2,7 +2,7 @@
 @import "src/_variable.scss";
 
 .todo-container {
-  width: 570px;
+  width: 100%;
   background: $tile-bg;
   margin: 0.3rem auto;
   height: 2.5rem;
@@ -35,29 +35,29 @@
   font-size: 16px;
   position: relative;
   opacity: 1 !important;
+  cursor: pointer;
 
-  span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    font-size: 1.7rem;
+  &:active {
+    background-color: #e91212;
     color: $white-text;
+  }
+  svg {
+    width: 65%;
+    height: 65%;
+    // margin: 0 auto;
+    position: absolute;
+    top: 50;
+    left: 50;
+    transform: translate(-50%, -50%);
   }
 }
 
-.delete:active {
-  background-color: #e91212;
-  color: $white-text;
+.checkbox {
+  width: 15px;
+  height: 15px;
 }
 
-#checkbox {
-  width: 20px;
-  height: 20px;
-}
-
-.is-complete:not(.delete) {
+.is-complete {
   text-decoration: line-through;
   text-decoration-style: line-through;
   text-decoration-color: #fff;
@@ -65,5 +65,7 @@
   -moz-text-decoration: line-through;
   -moz-text-decoration-color: #fff;
   -moz-text-decoration-thickness: 5px;
-  opacity: 0.7;
+  opacity: 0.8;
+}
+@media only screen and (max-width: 400px) {
 }
