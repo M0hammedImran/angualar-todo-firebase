@@ -16,7 +16,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class TodoListItemsComponent implements AfterViewChecked {
   @Input() todo: TODOS;
   @ViewChild('tref', { read: ElementRef }) tref: ElementRef;
-  constructor(private firestore: AngularFirestore) {}
+  constructor(
+    private firestore: AngularFirestore,
+    private service: TodoService
+  ) {}
 
   ngAfterViewChecked(): void {
     this.tref.nativeElement.checked = this.todo.isCompleted;
@@ -37,7 +40,7 @@ export class TodoListItemsComponent implements AfterViewChecked {
     this.todo.isCompleted = !todo.isCompleted;
   }
 
-  onDelete(todo: any) {
-    console.log('delete');
+  onDelete(todo: string) {
+    this.service.deleteTodo(this.todo.fireID);
   }
 }

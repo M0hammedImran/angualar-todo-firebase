@@ -1,4 +1,13 @@
 <div class="form-container">
-  <input type="text" name="newTodo" />
-  <button>Submit</button>
+  <label for="newTodo">Enter new Todo </label>
+
+  <input
+    type="text"
+    placeholder="{{ message }}"
+    name="newTodo"
+    id="newTodo"
+    (keyup.enter)="onSubmit(newTodo)"
+    #newTodo
+  />
+  <button (click)="onSubmit(newTodo)">Submit</button>
 </div>

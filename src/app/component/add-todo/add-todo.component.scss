@@ -2,7 +2,7 @@
 
 .form-container {
   width: 100%;
-  margin: 1rem auto;
+  margin: 1rem auto 2rem;
   height: 3rem;
 
   input {
@@ -26,5 +26,6 @@
     background: $tile-bg;
     color: $text-color;
     font-size: 16px;
+    cursor: pointer;
   }
 }

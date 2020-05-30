@@ -23,11 +23,11 @@ export class TodoService {
     return this.todos;
   }
 
-  updateTodos(todoID: string, todo: string) {
-    this.firestore.doc(`todos/${todoID}`).update(todo);
+  updateTodos(fireID: string, todo: string) {
+    this.firestore.doc(`todos/${fireID}`).update(todo);
   }
 
-  deleteTodo(todoID: string) {
-    this.firestore.doc(`todos/${todoID}`).delete();
+  deleteTodo(fireID: string) {
+    this.firestore.doc(`todos/${fireID}`).delete();
   }
 }
