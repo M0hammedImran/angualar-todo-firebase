@@ -15,7 +15,7 @@ export class AddTodoComponent implements OnInit {
   todo: TODOS;
 
   ngOnInit(): void {}
-  onSubmit(element) {
+  onSubmit(element: any) {
     this.title = element.value;
     if (this.title.length > 0) {
       this.todo = {
@@ -24,6 +24,7 @@ export class AddTodoComponent implements OnInit {
       };
       this.service.createNewTodo(this.todo);
       this.message = '';
+      element.value = '';
     } else {
       this.message = 'Error: Enter a Value.';
     }

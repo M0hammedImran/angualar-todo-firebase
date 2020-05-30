@@ -15,11 +15,10 @@ export class TodoListComponent implements OnInit {
   async ngOnInit() {
     this.service.getTodos().subscribe((todos) => {
       this.todos = todos.map((todo) => {
-        const { id, isCompleted, title } = todo.payload.doc.data();
+        const { isCompleted, title } = todo.payload.doc.data();
 
         return {
           fireID: todo.payload.doc.id,
-          id,
           title,
           isCompleted,
         };

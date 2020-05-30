@@ -40,7 +40,7 @@ export class TodoListItemsComponent implements AfterViewChecked {
     this.todo.isCompleted = !todo.isCompleted;
   }
 
-  onDelete(todo: string) {
+  onDelete(todo: TODOS) {
     this.service.deleteTodo(this.todo.fireID);
   }
 }
